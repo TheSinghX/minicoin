@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Rewards | MiniCoin Pals{% endblock %}
+
+{% block content %}
+<div class="container mt-5 fade-in">
+    <div class="neon-box p-4 shadow-lg">
+        <h2 class="text-center mb-4" style="color: #FFD700;">🏆 Mining Rewards</h2>
+
+        {% if rewards %}
+            <ul class="list-group">
+                {% for user, reward in rewards.items() %}
+                    <li class="list-group-item bg-dark text-light border-info">
+                        <strong>{{ user }}</strong> earned <span style="color: #00ffc3;">💰 {{ reward }} coins</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-center text-muted mt-3">No rewards earned yet. Start mining now! ⛏️</p>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-outline-light">🏠 Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

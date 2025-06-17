@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Create Group | MiniCoin Pals{% endblock %}
+
+{% block content %}
+<div class="text-center neon-box col-6 mx-auto">
+  <h2>Create a New Group</h2>
+  <form method="POST" action="{{ url_for('create_group') }}">
+    <div class="mb-3">
+      <label for="group_name" class="form-label">Group Name</label>
+      <input type="text" class="form-control" id="group_name" name="group_name" required>
+    </div>
+    <div class="mb-3">
+      <label for="members" class="form-label">Members (comma separated user IDs)</label>
+      <input type="text" class="form-control" id="members" name="members" placeholder="user1, user2, user3" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-neon">Create Group</button>
+  </form>
+</div>
+{% endblock %}

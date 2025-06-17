@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Groups | MiniCoin Pals{% endblock %}
+
+{% block content %}
+<div class="neon-box text-center">
+    <h2 class="mb-4">👥 All Groups</h2>
+    {% if groups %}
+        <ul class="list-group">
+            {% for group in groups %}
+                <li class="list-group-item bg-dark text-light">
+                    <a href="{{ url_for('group_detail', group_name=group.name) }}">{{ group.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No groups yet. <a href="{{ url_for('create_group') }}">Create one</a>!</p>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('create_group') }}" class="btn-neon mt-3">➕ Create New Group</a>
+</div>
+{% endblock %}

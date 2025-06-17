@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block title %}404 Not Found{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    background: #0f0f1a;
+    color: #0ff;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    margin: 0;
+  }
+  .glitch {
+    font-size: 6rem;
+    position: relative;
+    color: #0ff;
+    animation: glitch 1.5s infinite;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  .glitch::before {
+    animation: glitchTop 1.5s infinite;
+    color: #f0f;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  .glitch::after {
+    animation: glitchBottom 1.5s infinite;
+    color: #0ff;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+      opacity: 1;
+    }
+    20% {
+      transform: translate(-2px, 2px);
+      opacity: 0.8;
+    }
+    40% {
+      transform: translate(2px, -2px);
+      opacity: 0.8;
+    }
+    60% {
+      transform: translate(-2px, 2px);
+      opacity: 0.8;
+    }
+    80% {
+      transform: translate(2px, -2px);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
+  @keyframes glitchTop {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-3px, -3px);
+    }
+    40% {
+      transform: translate(3px, 3px);
+    }
+    60% {
+      transform: translate(-3px, -3px);
+    }
+    80% {
+      transform: translate(3px, 3px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  @keyframes glitchBottom {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(3px, 3px);
+    }
+    40% {
+      transform: translate(-3px, -3px);
+    }
+    60% {
+      transform: translate(3px, 3px);
+    }
+    80% {
+      transform: translate(-3px, -3px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+
+  .message {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #0ff;
+  }
+  .btn-home {
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    color: #0ff;
+    border: 2px solid #0ff;
+    background: transparent;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-home:hover {
+    background: #0ff;
+    color: #0f0f1a;
+    box-shadow: 0 0 8px #0ff;
+  }
+</style>
+
+<div class="container text-center">
+  <h1 class="glitch" data-text="404">404</h1>
+  <p class="message">Oops! Page Not Found</p>
+  <a href="/" class="btn-home">Go Back Home</a>
+</div>
+{% endblock %}

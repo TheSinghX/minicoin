@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}📊 Stats | MiniCoin Pals{% endblock %}
+
+{% block content %}
+<div class="neon-box">
+    <h1 class="text-center mb-4">📊 Blockchain Stats</h1>
+    
+    <div class="row mb-4 text-center">
+        <div class="col-md-4">
+            <h3>Total Blocks</h3>
+            <p class="fs-4 text-info">{{ stats.total_blocks }}</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Total Transactions</h3>
+            <p class="fs-4 text-warning">{{ stats.total_transactions }}</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Unique Users</h3>
+            <p class="fs-4 text-success">{{ stats.unique_users }}</p>
+        </div>
+    </div>
+
+    <h2 class="mb-3">🏆 Top Senders</h2>
+    <ul class="list-group mb-4">
+        {% for sender, count in stats.top_senders %}
+        <li class="list-group-item bg-dark text-light border-info d-flex justify-content-between align-items-center">
+            {{ sender }}
+            <span class="badge bg-info text-dark rounded-pill">{{ count }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2 class="mb-3">💰 Top Receivers</h2>
+    <ul class="list-group">
+        {% for receiver, count in stats.top_receivers %}
+        <li class="list-group-item bg-dark text-light border-warning d-flex justify-content-between align-items-center">
+            {{ receiver }}
+            <span class="badge bg-warning text-dark rounded-pill">{{ count }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

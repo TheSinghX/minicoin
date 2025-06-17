@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Create Group | MiniCoin Pals{% endblock %}
+
+{% block content %}
+<div class="container mt-5 fade-in">
+    <div class="card neon-box p-4 shadow-lg border-0" style="background: linear-gradient(145deg, #0d0d0d, #1a1a1a); color: #f1f1f1;">
+        <h2 class="text-center mb-4" style="color: #FFD700; font-weight: bold;">🚀 Create a New Group</h2>
+
+        <form method="post">
+            <div class="mb-4">
+                <label for="group_name" class="form-label">Group Name</label>
+                <input type="text" class="form-control neon-input" id="group_name" name="group_name" required placeholder="Enter group name (e.g., Goa Trip Pals)">
+            </div>
+
+            <div class="mb-4">
+                <label for="members" class="form-label">Member User IDs (comma-separated)</label>
+                <input type="text" class="form-control neon-input" id="members" name="members" required placeholder="E.g., user123, john_doe, mina45">
+                <small class="form-text text-muted">Ask your friends for their unique user IDs</small>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn-neon">✨ Create Group</button>
+                <a href="/" class="btn btn-outline-light ms-3">🏠 Home</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+.fade-in {
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+</style>
+{% endblock %}

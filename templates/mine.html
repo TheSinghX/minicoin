@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Mine Coins | MiniCoin Pals{% endblock %}
+
+{% block content %}
+<div class="neon-box text-center">
+    <h2>⛏️ Mine a New Block</h2>
+    <p class="mb-4">Earn 10 MiniCoins by mining a block. Enter your miner name to get started!</p>
+
+    <form method="POST">
+        <div class="mb-3">
+            <input type="text" class="form-control text-center" name="miner" placeholder="Enter your miner name" required>
+        </div>
+        <button type="submit" class="btn-neon">🚀 Start Mining</button>
+    </form>
+</div>
+{% endblock %}

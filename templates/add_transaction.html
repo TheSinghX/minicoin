@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Add Transaction | MiniCoin Pals{% endblock %}
+
+{% block content %}
+<div class="container mt-5 fade-in">
+    <div class="neon-box p-4 shadow-lg">
+        <h2 class="text-center mb-4" style="color: #FFD700;">💸 Add a New Transaction</h2>
+
+        <form method="post">
+            <div class="mb-3">
+                <label for="group_id" class="form-label">Select Group</label>
+                <select class="form-control neon-input" name="group_id" required>
+                    {% for gid, group in groups.items() %}
+                        <option value="{{ gid }}">{{ group.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="sender" class="form-label">Sender</label>
+                <input type="text" class="form-control neon-input" name="sender" required placeholder="Enter sender's User ID">
+            </div>
+
+            <div class="mb-3">
+                <label for="receiver" class="form-label">Receiver</label>
+                <input type="text" class="form-control neon-input" name="receiver" required placeholder="Enter receiver's User ID">
+            </div>
+
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="number" step="0.01" class="form-control neon-input" name="amount" required placeholder="Enter amount">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn-neon">💥 Add Transaction</button>
+                <a href="/" class="btn btn-outline-light ms-3">🏠 Home</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
