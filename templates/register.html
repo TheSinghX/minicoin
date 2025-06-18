@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Register | MiniCoin Pals{% endblock %}
+
+{% block content %}
+<div class="neon-box">
+  <h2 class="text-center mb-4">🚀 Register as a New User</h2>
+
+  <form method="POST">
+    <div class="mb-3">
+      <label for="email" class="form-label">📧 Enter your email to receive OTP</label>
+      <input type="email" class="form-control glowing-input" id="email" name="email" placeholder="Your email address" required>
+    </div>
+
+    <div class="d-grid mt-4">
+      <button type="submit" class="btn-neon">Send OTP</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Login | MiniCoin Pals{% endblock %}
+
+{% block content %}
+<div class="neon-box">
+  <h2 class="text-center mb-4">🔐 Login to MiniCoin Pals</h2>
+
+  <form method="POST" action="/login">
+    <div class="mb-3">
+      <label for="email" class="form-label">📧 Email address</label>
+      <input type="email" class="form-control glowing-input" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">🔑 Password</label>
+      <input type="password" class="form-control glowing-input" id="password" name="password" placeholder="Enter your password" required>
+    </div>
+
+    <div class="d-grid mt-4">
+      <button type="submit" class="btn-neon">Login</button>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="/register">🆕 New user? Register here</a>
+    </div>
+  </form>
+</div>
+
+<style>
+  .glowing-input {
+    background-color: #101020;
+    border: 2px solid #00ffc3;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ffc3a0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .glowing-input:focus {
+    outline: none;
+    box-shadow: 0 0 20px #00ffc3;
+    background-color: #151530;
+  }
+
+  .form-label {
+    color: #00ffc3;
+  }
+</style>
+{% endblock %}
